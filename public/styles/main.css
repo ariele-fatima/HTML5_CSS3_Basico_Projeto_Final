@@ -1,0 +1,128 @@
+/*Geral*/
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family:  Helvetica, Arial, sans-serif;
+    background-color: #161616;
+    color: white;
+}
+
+/* HEADER */
+.main-header{
+    position: relative; /*Para conseguir posicionar itens com posição absoluta que estarão dentro dele*/
+}
+
+.header-video{
+    width: 100%;
+}
+
+.navigation{
+    position: fixed; /*Para o menu continuar fixo na tela mesmo com scroll*/
+    top: 0; /*Ele vai "grudar" no topo da pagina*/
+    left: 0; /*Ele vai "grudar" na esquerda da pagina*/
+    right: 0; /*Ele tambem vai "grudar" na direita da pagina, assim ele fica com a mesma largura da pagina*/
+    background-color: #3b3b3b;
+    z-index: 100; /*Para que na hora do scroll, todos os outros itens da pagina passem por tras dele (ele sempre ficara por cima dos outros elementos)*/
+}
+
+.navigation-list{
+    padding: 0; /*Zerando a margem interna*/
+}
+
+.navigation-list-item{
+    display: inline-block; /*Para os itens fiquem um do lado do outro e ainda sejamos capazes de definir largura/altura pra eles */
+    padding: 15px;
+}
+
+.nav-link{
+    color: white; /*Por padrão a cor do texto em hiperlink é azul*/
+    text-decoration: none; /*Pra tirar o sublinhado do hiperlink*/
+    font-size: 20px;
+}
+
+.nav-link:hover{
+    color: #0079d0; /*Quando passar o cursor troca de cor*/
+}
+
+.logo{
+    position: absolute; /*em relação ao header (lembra que ele ta com position relative?)*/
+    top: 50%; /*pra ficar no meio em relação ao header*/
+    left: 50%; /*par ficar a esquerda em relação ao header*/
+    transform: translate(-50%,-50%); /*macete para centralizar a imagem*/
+    max-width: 90%; /*Para q a largura da imagem não ultrapasse o tamanho da pagina, quando chegar no limite (90% de largura) a imagem irá começar a diminuir para acompanhar o tamanho da pagina*/
+}
+
+/*GERAL O LUGAR E NOSSOS DRINKS*/
+/*Há muita formatação que é igual nos dois*/
+
+.section-background{
+    position: relative;
+    background-repeat: no-repeat; /*Quando diminui o zoom a imagem fica se repetindo*/
+    background-size: cover; /*A imagem estava menor que a largura da pagina, o cover vai aumentar a imagem para cobrir o espaço que ficava */
+    background-position: center; /*Para centralizar a imagem*/
+    min-height: 500px; /*para fixar o tamanho minino da imagem*/
+}
+
+.section-container{
+    position: absolute; /*para posicionar de acordo com o pai dessa div (que é o selection q esta com position relative)*/
+    background-color: rgba(0,0,0,0.65); /*Se colocasse opacidade em section-background todos o texto tambem ficaria opaco então colocou aqui pra pegar a div dentro do selection*/
+    /*Agora vamos "esticar" a div para ficar do mesmo tamanho da imagem/selection assim agora a imagem ficou opaca sem prejudicar o texto*/
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.section-title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.section-text{
+    background-color: rgba(0,0,0,0.70); /*Coloca uma opacidade ainda maior no texto*/
+    margin: 0; /*Para tirar o espaço entre as tags p*/
+    padding: 10px; /*Para dar um espaço entre o canto da pagina e o texto*/
+    font-size: 18px;
+}
+
+.ancora{
+    /*
+        Essa classe foi feita para resolver o seguinte problema:
+        Quando no menu você clicava para ir em determinada parte do site o titulo daquela parte (O Lugar por exemplo) acabava ficando 
+        debaixo do menu (lembra que o menu é fixo?), então foi usado uma tag qualquer (<i> aqui) só para criar essa classe e resolver 
+        esse problema (chamar essa classe nos lugares certos [ header, sections e footer] não daria certo pq isso quebraria a formatação
+        do texto, já que precisa que o posicionamento seja absoluto [senão não funciona] em relação ao pai que será justamente os lugares
+        certos citados anteriormente [ header, sections e footer])    
+    */
+    position: absolute;
+    top: -85px;
+}
+
+/* O LUGAR */
+.lugar{
+    background-image: url('/public/images/bar_interior.jpg');
+}
+
+/* NOSSOS DRINKS */
+.drinks{
+    background-image: url('/public/images/drinks_background.jpg');
+}
+
+.drink-image{
+    max-width: 30%; /*Definindo uma largura maxima*/
+    margin-top: -30px; /*Para subir mais a imagem e deixar alinhado com o titulo*/
+}
+
+/* FOOTER */
+
+.main-footer{
+    position: relative;
+    padding: 10px;
+}
+
+.footer-section{
+    display: inline-block; /*Para deixar as sections do footer uma do lado da outra*/
+    vertical-align: top; /*Como cada section tem um tamanho diferente por causa de seu conteudo, alinhamos todas*/
+    width: 32%; /*Para distribuir as sections pelo rodapé (33% pra dar 99% tava colocando uma das sections embaixo dai trocou pra 32%)*/
+    min-width: 230px; /*Colocando uma largura minima para não diminuir de tamanho*/
+}
